@@ -263,6 +263,18 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
             sendTextMessage(sender, body.joke);
         }
       });
+      break;
+   case "send-joke-more":
+      request({
+        uri: "https://icanhazdadjoke.com/",
+        json: true
+
+      },(error,response,body)=>{
+        if(!error && response.statusCode == 200){
+            sendTextMessage(sender, body.joke);
+        }
+      });
+      break;
     //  var responseText = "This is example of Text message."
     //  sendTextMessage(sender, responseText);
     //  break;
